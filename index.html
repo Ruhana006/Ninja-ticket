@@ -41,7 +41,7 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -57,14 +57,14 @@
                     <p><span id="increaseFirstClass">+</span> <span id="decreaseFirstClass">-</span></p>
                 </div>
             </div>
-            
+
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="economyClassInput" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                    <p> <span id="increaseEconomy">+</span> <span id="decreaseEconomy">-</span> </p>
                 </div>
             </div>
             <div class="calculations">
@@ -100,31 +100,68 @@
 
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                voluptatibus quam</p>
         </div>
-    </section>
-    <script>
-        const increaseFirstClass = document.getElementById('increaseFirstClass');
-        increaseFirstClass.addEventListener('click',function(){
-            const firstClassInput = document.getElementById('firstClassInput');
-            const firstClassInputNumber = parseInt(firstClassInput.value);
+        </section>
+        <script>
+            // First class
+            const increaseFirstClass = document.getElementById('increaseFirstClass');
+            increaseFirstClass.addEventListener('click', function () {
+                // const firstClassInput = document.getElementById('firstClassInput');
+                // const firstClassInputNumber = parseInt(firstClassInput.value);
 
-            const ticketCount = firstClassInputNumber + 1;
-            firstClassInput.value = ticketCount;
+                // const ticketCount = firstClassInputNumber + 1;
+                // firstClassInput.value = ticketCount;
+                ticketCountHandler(true);
 
-        })
-        const decreaseFirstClass = document.getElementById('decreaseFirstClass');
-        decreaseFirstClass.addEventListener('click',function(){
-            const firstClassInput = document.getElementById('firstClassInput');
-            const firstClassInputNumber = parseInt(firstClassInput.value);
+            })
+            const decreaseFirstClass = document.getElementById('decreaseFirstClass');
+            decreaseFirstClass.addEventListener('click', function () {
+                //  const firstClassInput = document.getElementById('firstClassInput');
+                //  const firstClassInputNumber = parseInt(firstClassInput.value);
 
-            const ticketCount = firstClassInputNumber - 1;
-            firstClassInput.value = ticketCount;
-        })
-        
+                //  const ticketCount = firstClassInputNumber - 1;
+                //  firstClassInput.value = ticketCount;
+                ticketCountHandler(false);
+            })
+            function ticketCountHandler(isIncrease) {
+                const firstClassInput = document.getElementById('firstClassInput');
+                const firstClassInputNumber = parseInt(firstClassInput.value);
+                let ticketCount = firstClassInputNumber;
+                if (isIncrease == true) {
+                    ticketCount = firstClassInputNumber + 1;
+                }
+                if(isIncrease ==false && firstClassInputNumber > 0){
+                    ticketCount = firstClassInputNumber - 1;
+                }
 
-    </script>
-    
+                firstClassInput.value = ticketCount;
+            }
+
+
+            // Economy class
+            const increaseEconomy = document.getElementById('increaseEconomy');
+            increaseEconomy.addEventListener('click', function () {
+                const economyClassInput = document.getElementById('economyClassInput')
+                const economyClassInputNumber = parseInt(economyClassInput.value);
+
+                const ticketCount = economyClassInputNumber + 1;
+                economyClassInput.value = ticketCount;
+            })
+            const decreaseEconomy = document.getElementById('decreaseEconomy');
+            decreaseEconomy.addEventListener('click', function () {
+                const economyClassInput = document.getElementById('economyClassInput');
+                const economyClassInputNumber = parseInt(economyClassInput.value);
+
+                const ticketCount = economyClassInputNumber - 1;
+                economyClassInput.value = ticketCount;
+            })
+
+
+        </script>
+
 </body>
 
 </html>
