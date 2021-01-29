@@ -114,7 +114,7 @@
 
                 // const ticketCount = firstClassInputNumber + 1;
                 // firstClassInput.value = ticketCount;
-                ticketCountHandler(true);
+                ticketCountHandler('first' , true);
 
             })
             const decreaseFirstClass = document.getElementById('decreaseFirstClass');
@@ -124,10 +124,10 @@
 
                 //  const ticketCount = firstClassInputNumber - 1;
                 //  firstClassInput.value = ticketCount;
-                ticketCountHandler(false);
+                ticketCountHandler('first',false);
             })
-            function ticketCountHandler(isIncrease) {
-                const firstClassInput = document.getElementById('firstClassInput');
+            function ticketCountHandler(catagory, isIncrease) {
+                const firstClassInput = document.getElementById(catagory + 'ClassInput');
                 const firstClassInputNumber = parseInt(firstClassInput.value);
                 let ticketCount = firstClassInputNumber;
                 if (isIncrease == true) {
@@ -144,20 +144,23 @@
             // Economy class
             const increaseEconomy = document.getElementById('increaseEconomy');
             increaseEconomy.addEventListener('click', function () {
-                const economyClassInput = document.getElementById('economyClassInput')
-                const economyClassInputNumber = parseInt(economyClassInput.value);
+                // const economyClassInput = document.getElementById('economyClassInput')
+                // const economyClassInputNumber = parseInt(economyClassInput.value);
 
-                const ticketCount = economyClassInputNumber + 1;
-                economyClassInput.value = ticketCount;
+                // const ticketCount = economyClassInputNumber + 1;
+                // economyClassInput.value = ticketCount;
+                ticketCountHandler('economy',true);
             })
             const decreaseEconomy = document.getElementById('decreaseEconomy');
             decreaseEconomy.addEventListener('click', function () {
-                const economyClassInput = document.getElementById('economyClassInput');
-                const economyClassInputNumber = parseInt(economyClassInput.value);
+                // const economyClassInput = document.getElementById('economyClassInput');
+                // const economyClassInputNumber = parseInt(economyClassInput.value);
 
-                const ticketCount = economyClassInputNumber - 1;
-                economyClassInput.value = ticketCount;
+                // const ticketCount = economyClassInputNumber - 1;
+                // economyClassInput.value = ticketCount;
+                ticketCountHandler('economy',false);
             })
+            
 
 
         </script>
