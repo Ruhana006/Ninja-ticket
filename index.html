@@ -98,9 +98,7 @@
                 </div>
             </div>
             <button id="bookingBtn" class="btn-style">Book Now</button>
-        <!-- <div id="downloadTicketArea">
-            <h4>hello</h4>
-        </div> -->
+       
         </div>
 
         <div class="booking-content">
@@ -111,29 +109,34 @@
         </div>
         </section>
         <script>
-            // First class
+            //For First class
 
             const increaseFirstClass = document.getElementById('increaseFirstClass');
             increaseFirstClass.addEventListener('click', function () {
+                // const firstClassInput = document.getElementById('firstClassInput');
+                // const firstClassInputNumber = parseInt(firstClassInput.value);
+                // const ticketCount = firstClassInputNumber + 1;
+                // firstClassInput.value = ticketCount;
                 ticketCountHandler('firstClass', true);
-
             })
             const decreaseFirstClass = document.getElementById('decreaseFirstClass');
             decreaseFirstClass.addEventListener('click', function () {
                 ticketCountHandler('firstClass', false);
             })
 
-            // Economy class
+            //For Economy class
 
             const increaseEconomy = document.getElementById('increaseEconomyClass');
             increaseEconomy.addEventListener('click', function () {
                 ticketCountHandler('economyClass', true);
             })
             const decreaseEconomy = document.getElementById('decreaseEconomyClass');
-            decreaseEconomy.addEventListener('click', function () {
+            decreaseEconomy.addEventListener('click', function () {   
                 ticketCountHandler('economyClass', false);
             })
+
             // Function for ticket count
+
             function ticketCountHandler(catagory, isIncrease) {
                 const ticketClassInput = document.getElementById(catagory + 'Input');
                 const ticketClassInputNumber = parseInt(ticketClassInput.value);
@@ -148,38 +151,36 @@
                 ticketClassInput.value = ticketCount;
                 totalPrice()
             }
-            // Function for calculating total price
-            function totalPrice() {
 
-                const firstClassInput =  document.getElementById('firstClassInput');
+            // Function for calculating total price
+
+            function totalPrice() {
+                const firstClassInput = document.getElementById('firstClassInput');
                 const firstClassInputNumber = parseInt(firstClassInput.value);
 
-                const economyClassInput = getInputValue('economyClass')
-                // const economyClassInputNumber = parseInt(economyClassInput.value);
+                const economyClassInput = document.getElementById('economyClassInput');
+                const economyClassInputNumber = parseInt(economyClassInput.value);
 
-            // subtotal calculation
+                // subtotal calculation
                 const subTotal = firstClassInputNumber * 150 + economyClassInputNumber * 100;
                 document.getElementById('subTotal').innerText = '$' + subTotal;
-            // vat calculation
+
+                // vat calculatiom
                 const vat = subTotal * 0.1;
                 document.getElementById('taxValue').innerText = '$' + vat;
-            // total calculation
+
+                // total calculation
                 const total = subTotal + vat;
                 document.getElementById('totalValue').innerText = '$' + total;
             }
+            
             // Booking button handler
+
             const bookingBtn = document.getElementById('bookingBtn');
             bookingBtn.addEventListener('click',function(){
                 const bookingFormArea = document.getElementById('bookingFormArea');
                 bookingFormArea.style.display = 'none';
-                
-
-                // const downloadTicketArea = document.getElementById('downloadTicketArea');
-                // downloadTicketArea.style.display = 'block';
-                })
-                
-             
-
+            })
         </script>
 
 </body>
